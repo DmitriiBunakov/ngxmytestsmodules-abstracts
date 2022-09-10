@@ -3,5 +3,39 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "abstracts": {
+      "projectType": "library",
+      "root": "projects/abstracts",
+      "sourceRoot": "projects/abstracts/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/abstracts/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/abstracts/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/abstracts/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/abstracts/src/test.ts",
+            "tsConfig": "projects/abstracts/tsconfig.spec.json",
+            "karmaConfig": "projects/abstracts/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "aa0ce1b1-2c4f-4624-98af-17643b79bfaa"
   }
 }
